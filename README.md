@@ -3,13 +3,6 @@
 Page design:
 ![Alt text](assets/page_designs/home.png)
 
-# ITMO-Web-Frontend | Гаджиев Саид M3304
-
-Шаблон сайта:
-
-![шаблон](https://github.com/user-attachments/assets/053672f7-3bf6-4aa1-acc6-09b075ee0e01)
-
-
 ## Лабораторная работа №1
 
 ### Описание
