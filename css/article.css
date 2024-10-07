@@ -1,0 +1,16 @@
+.site-content{
+    font-size: 25px;
+}
+
+table, tr, td{
+    border-style: solid;
+}
+
+div > p > img {
+    border-style: solid;
+    padding: 10px 13px;
+}
+
+h1.post-title {
+    text-align: center;
+}
