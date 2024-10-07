@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+}
+
+.container-height {
+    height: 90px;
+}
+
+.top-menu-container {
+    top: 0;
+    background-color: black;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 1000;
+}
+
+.top-menu-container .navigator {
+    display: flex;
+    padding-left: 10%;
+}
+
+.top-menu-container .navigator a {
+    align-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+}
+
+.search-container {
+    display: flex;
+    margin-right: 5%;
+    width: 30%;
+    border: 2px solid #007BFF; 
+    border-radius: 25px; 
+    overflow: hidden; 
+}
+
+
+.search-input {
+    border: none; 
+    padding: 10px 15px; 
+    font-size: 16px;
+    outline: none;
+    flex: 1;
+}
+
+.search-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    border-radius: 0 25px 25px 0; 
+    transition: background-color 0.3s;
+}
+
+
+.navigator a {
+    color: #f0eded;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navigator a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navigator a.active {
+    background-color: #4CAF50;
+    color: white;
+} 
+
+.site-content {
+    display: block;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+footer {
+    color: rgb(255, 255, 255);
+    background-color: rgb(133, 121, 121);
+    height: 100px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    align-content: center;
+    padding: 0px 90px;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+@media screen and (max-width: 1390px) {
+    .top-menu-container .navigator, .search-container{
+        display: none;
+    }
+
+    footer {
+        width: 100%;
+    }
+}
+
