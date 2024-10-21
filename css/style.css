@@ -3,7 +3,12 @@ body {
 }
 
 .container-height {
-    height: 90px;
+    height: 5vw;
+    min-height: 60px;
+}
+
+.dropdown-btn{
+    display: none;
 }
 
 .top-menu-container {
@@ -19,20 +24,19 @@ body {
 
 .top-menu-container .navigator {
     display: flex;
-    padding-left: 10%;
+    padding-left: 7vw;
 }
 
 .top-menu-container .navigator a {
     align-content: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 1.5vw;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 20px;
+    font-size: 1.1vw;
 }
 
 .search-container {
     display: flex;
-    margin-right: 5%;
+    margin-right: 5vw;
     width: 30%;
     border: 2px solid #007BFF; 
     border-radius: 25px; 
@@ -43,7 +47,7 @@ body {
 .search-input {
     border: none; 
     padding: 10px 15px; 
-    font-size: 16px;
+    font-size: 1vw;
     outline: none;
     flex: 1;
 }
@@ -54,7 +58,7 @@ body {
     border: none;
     padding: 10px 20px; 
     cursor: pointer; 
-    font-size: 16px; 
+    font-size: 1vw; 
     border-radius: 0 25px 25px 0; 
     transition: background-color 0.3s;
 }
@@ -78,39 +82,55 @@ body {
 
 .site-content {
     display: block;
-    margin-top: 5%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-top: 5vw;
+    margin-left: 7vw;
+    margin-right: 7vw;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 
 footer {
-    color: rgb(255, 255, 255);
+    width: 100%;
     background-color: rgb(133, 121, 121);
-    height: 100px;
+    height: 5vw;
+    min-height: 55px;
+    align-content: center;
+}
+
+footer p {
+    padding-left: 5vw;
+    color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 20px;
-    align-content: center;
-    padding: 0px 90px;
 }
 
 .bottom {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    left: 0;
 }
 
-@media screen and (max-width: 1390px) {
+@media screen and (max-width: 1260px) {
     .top-menu-container .navigator, .search-container{
         display: none;
     }
 
+    header {
+        align-items: center;
+    }
+
+    .dropdown-btn {
+        display: inline-block;
+        margin: 0 auto;
+    }
+
     footer {
-        width: 100%;
         text-align: center;
-        padding: 0%;
-        font-size: 1em;
     }
 }
 
+@media screen and (max-width: 800px) {
+    body {
+        width: 800px;
+    }
+}
