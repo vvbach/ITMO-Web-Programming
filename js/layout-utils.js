@@ -30,10 +30,24 @@ function clickMenuBtn(){
     document.getElementsByClassName('header__dropdown-content')[0].classList.toggle('header__dropdown-content-open');
 }
 
+function highlightActiveMenu(){
+    const menuItems = document.querySelectorAll('.header__dropdown-link, .header__nav-link');
+    const currentPage = document.location.pathname.substring(1);
+    menuItems.forEach((item) => {
+        if (item.getAttribute('href') == currentPage){
+            item.classList.add('header__link-activated');
+        }
+        else {
+            item.classList.remove('header__link-activated');
+        }
+    });
+}
+
 function initialize(){
     setFooterAtBottom();
     setPositionDropdownMenu();
     setContentPosition();
+    highlightActiveMenu();
 }
 
 document.addEventListener("DOMContentLoaded", initialize);

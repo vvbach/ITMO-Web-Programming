@@ -80,13 +80,18 @@ body {
 }
 
 .header__nav-link:hover {
-    background-color: #ddd;
+    background-color: #00ff4c;
     color: black;
 }
 
 .header__nav-link:active {
     background-color: #4CAF50;
     color: white;
+}
+
+.header__link-activated {
+    background-color:  #ddd;
+    color: black;
 }
 
 .header__search-container {
