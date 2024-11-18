@@ -41,6 +41,7 @@ function highlightActiveMenu(){
             item.classList.remove('header__link-activated');
         }
     });
+    console.log(currentPage);
 }
 
 function initialize(){
