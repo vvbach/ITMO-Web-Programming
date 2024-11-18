@@ -1,45 +1,95 @@
 body {
     margin: 0;
-}
-/* 
-.container-height {
-    height: 5vw;
-    min-height: 60px;
-} */
-
-.dropdown-btn, .dropdown-content {
-    display: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.top-menu-container {
-    top: 0;
+/* Header Block */
+.header {
     background-color: black;
-    display: flex;
     position: fixed;
-    align-items: center;
-    justify-content: space-between;
+    top: 0;
     width: 100%;
     z-index: 1;
+}
+
+.header__menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 5vw;
     min-height: 60px;
 }
 
-.top-menu-container .navigator {
+.header__dropdown-btn {
+    display: none;
+    cursor: pointer;
+    width: 40px;
+    height: 36px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.header__dropdown-bar {
+    background-color: white;
+    height: 4px;
+    margin: 6px auto;
+    width: 35px;
+    transition: 0.4s;
+}
+
+.header__dropdown-btn-change-animation div:nth-child(1) {
+    transform: translate(0, 10px) rotate(-45deg);
+}
+
+.header__dropdown-btn-change-animation div:nth-child(2) {
+    opacity: 0;
+}
+
+.header__dropdown-btn-change-animation div:nth-child(3) {
+    transform: translate(0, -10px) rotate(45deg);
+}
+
+.header__dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    text-align: center;
+}
+
+.header__dropdown-link {
+    color: #f0eded;
+    text-decoration: none;
+    display: block;
+    padding: 12px 16px;
+}
+
+.header__navigator {
     display: flex;
     padding-left: 7vw;
     height: inherit;
 }
 
-.top-menu-container .navigator a {
+.header__nav-link {
     align-content: center;
-    padding: 0 1.5vw;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.1vw;
     color: #f0eded;
     text-decoration: none;
+    padding: 0 1.5vw;
+    font-size: 1.1vw;
 }
 
-.search-container {
+.header__nav-link:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.header__nav-link:active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.header__search-container {
     display: flex;
     margin-right: 5vw;
     width: 30%;
@@ -48,46 +98,36 @@ body {
     overflow: hidden;
 }
 
-
-.search-input {
+.header__search-input {
+    flex: 1;
     border: none;
     padding: 10px 15px;
     font-size: 1vw;
     outline: none;
-    flex: 1;
 }
 
-.search-button {
+.header__search-button {
     background-color: #007BFF;
     color: white;
     border: none;
     padding: 10px 20px;
-    cursor: pointer;
     font-size: 1vw;
-    border-radius: 0 25px 25px 0;
-    transition: background-color 0.3s;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.navigator a:hover {
-    background-color: #ddd;
-    color: black;
+.header__search-button:hover {
+    background-color: #0056b3;
 }
 
-.navigator a:active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.site-content {
+/* Content Block */
+.content {
     display: block;
-    margin-top: 8vw;
-    margin-left: 7vw;
-    margin-right: 7vw;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0 7vw;
 }
 
-
-footer {
+/* Footer Block */
+.footer {
     width: 100%;
     background-color: rgb(133, 121, 121);
     height: 5vw;
@@ -95,79 +135,38 @@ footer {
     align-content: center;
 }
 
-footer p {
+.footer__text {
     padding-left: 5vw;
     color: white;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 20px;
+    font-size: 1rem;
 }
 
+/* Utility Classes */
 .bottom {
     position: fixed;
     bottom: 0;
     left: 0;
 }
 
+/* Media Queries */
 @media screen and (max-width: 1260px) {
-
-    .top-menu-container .navigator,
-    .search-container {
+    .header__navigator,
+    .header__search-container {
         display: none;
     }
-    
-    .dropdown-btn {
+
+    .header__dropdown-btn {
         display: inline-block;
-        cursor: pointer;
-        width: 40px;
-        height: 36px;
-        position: absolute;
-        top: 20%;
-        margin-left: auto;
-        margin-right: auto;
-        left: 0;
-        right: 0;
     }
 
-    .dropdown-btn div {
-        width: 35px;
-        height: 4px;
-        background-color: white;
-        margin: 6px auto;
-        transition: 0.4s;
-    }
-
-    .dropdown-btn-change-animation div:nth-child(1) {
-        transform: translate(0, 10px) rotate(-45deg);
-    }
-
-    .dropdown-btn-change-animation div:nth-child(2) {
-        opacity: 0;
-    }
-
-    .dropdown-btn-change-animation div:nth-child(3) {
-        transform: translate(0, -10px) rotate(45deg);
-    }
-
-    .dropdown-content-open {
+    .header__dropdown-content-open {
         display: block;
-        background-color: black;
-        position: absolute;
-        width: 100%;
     }
-
-    .dropdown-content-open a {
-        display: block;
-        color: #f0eded;
-        text-decoration: none;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        padding: 12px 16px;
-        text-align: center;
-    }
-
-    footer {
+    .footer {
         text-align: center;
     }
 }
+
 
 @media screen and (max-width: 800px) {
     body {

@@ -1,7 +1,6 @@
 .info {
-    padding-left: 5%;
+    padding: 0 1vw;
     border-style: double;
-    width: 100%;
     font-size: 20px;
     box-shadow: 5px 10px;
 }

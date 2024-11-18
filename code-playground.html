@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Code Playground</title>
+    <script src="js/layout-utils.js"></script>
+    <script src="js/load-stats.js"></script>
 </head>
+
 <body>
-    <header class="container-height">
-        <div class="top-menu-container container-height">
-            <div class="navigator container-height">
-                <a href="index.html">HOME</a>
-                <a href="">NETWORK</a>
-                <a href="">PROGRAMMING</a>
-                <a href="">OS</a>
-                <a href="about.html">ABOUT</a>
-                <a href="contact.html">CONTACT</a>
-                <a href="code_playground.html">CODE PLAYGROUND</a>
+    <header class="header">
+        <div class="header__menu-container">
+            <!--Dropdown button for mobile device-->
+            <div class="header__dropdown-btn" role="button" onclick="clickMenuBtn()">
+                <div class="header__dropdown-bar"></div>
+                <div class="header__dropdown-bar"></div>
+                <div class="header__dropdown-bar"></div>
             </div>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search...">
-                <button class="search-button">Search</button>
+            <div class="header__dropdown-content">
+                <a href="index.html" class="header__dropdown-link">HOME</a>
+                <a href="" class="header__dropdown-link">NETWORK</a>
+                <a href="" class="header__dropdown-link">PROGRAMMING</a>
+                <a href="" class="header__dropdown-link">OS</a>
+                <a href="about.html" class="header__dropdown-link">ABOUT</a>
+                <a href="contact.html" class="header__dropdown-link">CONTACT</a>
+                <a href="code-playground.html" class="header__dropdown-link">CODE PLAYGROUND</a>
+            </div>
+
+            <!--Navigator bar for computer-->
+            <div class="header__navigator">
+                <a href="index.html" class="header__nav-link">HOME</a>
+                <a href="" class="header__nav-link">NETWORK</a>
+                <a href="" class="header__nav-link">PROGRAMMING</a>
+                <a href="" class="header__nav-link">OS</a>
+                <a href="about.html" class="header__nav-link">ABOUT</a>
+                <a href="contact.html" class="header__nav-link">CONTACT</a>
+                <a href="code-playground.html" class="header__nav-link">CODE PLAYGROUND</a>
+            </div>
+            <div class="header__search-container">
+                <input type="text" class="header__search-input" placeholder="Search...">
+                <button class="header__search-button">Search</button>
             </div>
         </div>
     </header>
 
-    <div id="content" class="site-content">
+    <div id="content" class="content">
         <h1>ASCII ART:</h1>
         <pre>
             _=====_                               _=====_
@@ -83,12 +104,13 @@
             Всегда будь самим собой, выражай себя, верь в себя. Не ищи успешных личностей и не копируй их.
         </blockquote>
         <p>
-            Success = <span>(E<sub>1</sub> + E<sub>2</sub>)<sup>2</sup>, where <span>E<sub>1</sub> = Effort</span>, <span>E<sub>2</sub> = Enthusiasm</span></span>.
+            Success = <span>(E<sub>1</sub> + E<sub>2</sub>)<sup>2</sup>, where <span>E<sub>1</sub> = Effort</span>,
+                <span>E<sub>2</sub> = Enthusiasm</span></span>.
         </p>
     </div>
-    <footer>
-        <p>&copy; 2024 My Website. All rights reserved.</p>
+    <footer class="footer">
+        <p class="footer__text">&copy; 2024 My Website. All rights reserved.</p>
     </footer>
-    <script src="js/script.js"></script>
 </body>
+
 </html>

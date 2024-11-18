@@ -7,27 +7,46 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/article.css">
     <title>Web Programming Lab</title>
+    <script src="js/layout-utils.js"></script>
+    <script src="js/load-stats.js"></script>
 </head>
 
 <body>
-    <header class="container-height">
-        <div class="top-menu-container container-height">
-            <div class="navigator container-height">
-                <a href="index.html">HOME</a>
-                <a href="">NETWORK</a>
-                <a href="">PROGRAMMING</a>
-                <a href="">OS</a>
-                <a href="about.html">ABOUT</a>
-                <a href="contact.html">CONTACT</a>
-                <a href="code_playground.html">CODE PLAYGROUND</a>
+    <header class="header">
+        <div class="header__menu-container">
+            <!--Dropdown button for mobile device-->
+            <div class="header__dropdown-btn" role="button" onclick="clickMenuBtn()">
+                <div class="header__dropdown-bar"></div>
+                <div class="header__dropdown-bar"></div>
+                <div class="header__dropdown-bar"></div>
             </div>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search...">
-                <button class="search-button">Search</button>
+            <div class="header__dropdown-content">
+                <a href="index.html" class="header__dropdown-link">HOME</a>
+                <a href="" class="header__dropdown-link">NETWORK</a>
+                <a href="" class="header__dropdown-link">PROGRAMMING</a>
+                <a href="" class="header__dropdown-link">OS</a>
+                <a href="about.html" class="header__dropdown-link">ABOUT</a>
+                <a href="contact.html" class="header__dropdown-link">CONTACT</a>
+                <a href="code-playground.html" class="header__dropdown-link">CODE PLAYGROUND</a>
+            </div>
+
+            <!--Navigator bar for computer-->
+            <div class="header__navigator">
+                <a href="index.html" class="header__nav-link">HOME</a>
+                <a href="" class="header__nav-link">NETWORK</a>
+                <a href="" class="header__nav-link">PROGRAMMING</a>
+                <a href="" class="header__nav-link">OS</a>
+                <a href="about.html" class="header__nav-link">ABOUT</a>
+                <a href="contact.html" class="header__nav-link">CONTACT</a>
+                <a href="code-playground.html" class="header__nav-link">CODE PLAYGROUND</a>
+            </div>
+            <div class="header__search-container">
+                <input type="text" class="header__search-input" placeholder="Search...">
+                <button class="header__search-button">Search</button>
             </div>
         </div>
     </header>
-    <div id="content" class="site-content">
+    <div id="content" class="content">
         <article>
             <h1 class="post-title">How Does a VPN Work? Tutorial for Beginners</h1>
             <p>Do you worry about online security while using public Wi-Fi? Or has someone told you that you might get
@@ -287,10 +306,9 @@
             <p>And just remember – don't ever try to use a VPN to perform any illegal activities.</p>
         </article>
     </div>
-    <footer>
-        <p>&copy; 2024 My Website. All rights reserved.</p>
+    <footer class="footer">
+        <p class="footer__text">&copy; 2024 My Website. All rights reserved.</p>
     </footer>
-    <script src="js/script.js"></script>
 </body>
 
 </html>
