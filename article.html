@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/article.css">
     <title>Web Programming Lab</title>
+    <script src="js/comments.js"></script>
     <script src="js/layout-utils.js"></script>
     <script src="js/load-stats.js"></script>
 </head>
@@ -22,9 +23,6 @@
             </div>
             <div class="header__dropdown-content">
                 <a href="index.html" class="header__dropdown-link">HOME</a>
-                <a href="" class="header__dropdown-link">NETWORK</a>
-                <a href="" class="header__dropdown-link">PROGRAMMING</a>
-                <a href="" class="header__dropdown-link">OS</a>
                 <a href="about.html" class="header__dropdown-link">ABOUT</a>
                 <a href="contact.html" class="header__dropdown-link">CONTACT</a>
                 <a href="code-playground.html" class="header__dropdown-link">CODE PLAYGROUND</a>
@@ -33,9 +31,6 @@
             <!--Navigator bar for computer-->
             <div class="header__navigator">
                 <a href="index.html" class="header__nav-link">HOME</a>
-                <a href="" class="header__nav-link">NETWORK</a>
-                <a href="" class="header__nav-link">PROGRAMMING</a>
-                <a href="" class="header__nav-link">OS</a>
                 <a href="about.html" class="header__nav-link">ABOUT</a>
                 <a href="contact.html" class="header__nav-link">CONTACT</a>
                 <a href="code-playground.html" class="header__nav-link">CODE PLAYGROUND</a>
@@ -46,17 +41,15 @@
             </div>
         </div>
     </header>
-    <div id="content" class="content">
+    <div id="content" class="content"> 
         <article>
             <h1 class="post-title">How Does a VPN Work? Tutorial for Beginners</h1>
             <p>Do you worry about online security while using public Wi-Fi? Or has someone told you that you might get
                 hacked when using an insecure connection and someone will steal all your details?</p>
             <p>Well, you might have also heard that you should use a VPN to protect your online privacy. But do you have
-                any
-                idea what it is and how it works?</p>
+                any idea what it is and how it works?</p>
             <p>Don’t worry – in this article, we will go through everything that you need to know to about what and when
-                to
-                use a VPN and when to avoid using it. So, without any further delay, let’s get started.</p>
+                to use a VPN and when to avoid using it. So, without any further delay, let’s get started.</p>
             <h2 id="heading-what-is-a-vpn">What is a VPN?</h2>
             <p>VPN stands for Virtual Private Network. It is a type of network you can connect to which will help you
                 protect your online security and privacy.</p>
@@ -305,6 +298,26 @@
                 occasionally using free VPNs won’t harm you and will still serve the purpose.</p>
             <p>And just remember – don't ever try to use a VPN to perform any illegal activities.</p>
         </article>
+        <hr>
+        <section class="content__comment-section">
+            <h3>Leave a Comment</h3>
+            <form class="comment-form">
+                <label for="username">Name:</label>
+                <input type="text" id="username" name="username" placeholder="Your Name" required>
+                <br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <br><br>
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" placeholder="Write your comment here..." required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+            </form>
+            <div class="comment-container">
+                <h2>Comments</h2>
+            </div>
+        </section>
     </div>
     <footer class="footer">
         <p class="footer__text">&copy; 2024 My Website. All rights reserved.</p>

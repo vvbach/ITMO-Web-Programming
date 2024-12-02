@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/article.css">
+    <title>Web Programming Lab</title>
+    <script src="js/promise.js"></script>
+    <script src="js/layout-utils.js"></script>
+    <script src="js/load-stats.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__menu-container">
+            <!--Dropdown button for mobile device-->
+            <div class="header__dropdown-btn" role="button" onclick="clickMenuBtn()">
+                <div class="header__dropdown-bar"></div>
+                <div class="header__dropdown-bar"></div>
+                <div class="header__dropdown-bar"></div>
+            </div>
+            <div class="header__dropdown-content">
+                <a href="index.html" class="header__dropdown-link">HOME</a>
+                <a href="about.html" class="header__dropdown-link">ABOUT</a>
+                <a href="contact.html" class="header__dropdown-link">CONTACT</a>
+                <a href="code-playground.html" class="header__dropdown-link">CODE PLAYGROUND</a>
+            </div>
+
+            <!--Navigator bar for computer-->
+            <div class="header__navigator">
+                <a href="index.html" class="header__nav-link">HOME</a>
+                <a href="about.html" class="header__nav-link">ABOUT</a>
+                <a href="contact.html" class="header__nav-link">CONTACT</a>
+                <a href="code-playground.html" class="header__nav-link">CODE PLAYGROUND</a>
+            </div>
+            <div class="header__search-container">
+                <input type="text" class="header__search-input" placeholder="Search...">
+                <button class="header__search-button">Search</button>
+            </div>
+        </div>
+    </header>
+    <div id="content" class="content">
+        <article>
+            <h1>How To Use SSH to Connect to a Remote Server</h1>
+            <p class="h3">Introduction</p>
+            <p>When establishing a remote connection between a client and a server, the primary concern is security.
+                For Linux users, the best practice for accessing and managing a server remotely is through the
+                cryptographic protocol known as Secure Shell (SSH).
+            <p>SSH encrypts all data transferred from one machine to another, ensuring no
+                sensitive information is compromised.</p>
+            <p><strong>In this tutorial, you will learn to enable and configure SSH on Ubuntu and troubleshoot common
+                    errors.</strong></p>
+            <p class="h3">Prerequisites</p>
+            <ul>
+                <li>A machine running Ubuntu (this guide is tested on Ubuntu 18.04, 20.04, 22.04, and 24.04).</li>
+                <li>A user account with root privileges.</li>
+                <li>Access to the terminal (<strong>Ctrl</strong> + <strong>Alt</strong> + <strong>T</strong>).</li>
+            </ul>
+            <h2>How to Enable SSH on Ubuntu</h2>
+            <p>The <strong>SSH server</strong> is not installed by default on all Ubuntu versions. To install and enable
+                SSH on Ubuntu, follow the steps below:</p>
+            <p>1. Open the terminal and check if an SSH server is already installed on your machine. Run the following
+                ssh command:</p>
+            <pre class="wp-block-code">ssh localhost</code></pre>
+            <p>If you see the SSH "Connection Refused" message, SSH is not installed on your
+                machine, and you can proceed with the installation steps.</p>
+            <p>2. To ensure you install the latest SSH version, update the package repository index:</p>
+            <pre class="wp-block-code">sudo apt update</code></pre>
+            <p>3. Install the OpenSSH software package by running:</p>
+            <pre class="wp-block-code"><code>sudo apt install openssh-server</code></pre>
+            <p>When prompted, type <strong>y</strong> and press <strong>Enter</strong> to permit the installation.</p>
+            <p>4. Verify the installation was successful and that SSH is running:</p>
+            <pre class="wp-block-code"><code>sudo service ssh status</code></pre>
+            <p>The confirmation message that you are looking for is: <code>Active: active (running)</code> If the
+                service is not running, start it with:</p>
+            <pre class="wp-block-code"><code>sudo service ssh start</code></pre>
+            <p>5. Return to the command line prompt with <strong><code>q</code></strong>.</p>
+            <h2>Ubuntu SSH Configuration</h2>
+
+            <p>The default SSH configuration options can be modified. You can change
+                the default port(generally a good idea, as a precautionary security measure), disable the root
+                user, or make other configuration adjustments.</p>
+            <p>The sections below show how to configure your SSH installation.</p>
+            <h3>Edit SSH Configuration File on Ubuntu</h3>
+            <p>After installing OpenSSH on Ubuntu, edit its configuration file to improve connection security
+                significantly. Follow the steps below:</p>
+            <p>1. Open the SSHconfiguration file using a text editorsuch as nano</p>
+
+
+
+            <pre class="wp-block-code"><code>sudo nano /etc/ssh/sshd_config</code></pre>
+
+
+
+            <p>2. Change the default port number. For example, set the service to listen on the port
+                <strong><code>2973</code></strong> instead of the default TCP
+                port <strong><code>22</code></strong>. In the configuration file, find
+                the line in which <strong><code>Port 22</code></strong> is specified by default, uncomment the line, and
+                change it to the port you want:</p>
+
+            <div class="notice-note">
+                <div class="note-icon-wrapper"><i class="fa fa-lightbulb"></i></div>
+                <div class="notice-text">
+                    <p><strong>Note:</strong> Changing the default port number is an SSH security best
+                        practice. Everyone is aware of the default port number so changing it is a recommended security
+                        precaution.</p>
+                </div>
+            </div>
+
+            <h3>Disable Root Login</h3>
+
+
+
+            <p>Another critical security precaution is to disable remote root access. That way, the root user cannot be
+                invoked remotely, and security will be significantly improved.</p>
+
+
+
+            <p>1. In the configuration file, find the following line:</p>
+
+
+
+            <pre class="wp-block-code"><code>PermitRootLogin_yes</code></pre>
+
+
+
+            <p>Uncomment and change the line to:</p>
+
+
+
+            <pre class="wp-block-code"><code>PermitRootLogin_no</code></pre>
+
+
+
+            <p>If the line does not exist, add it to the file.</p>
+
+
+
+            <p>2. For the changes to take effect, restart the SSH service with the following command:</p>
+
+
+
+            <pre class="wp-block-code"><code>sudo systemctl restart sshd.service</code></pre>
+
+
+
+            <h3>Configure Firewall: Change Default Port</h3>
+
+
+
+            <p>If you have decided to change the default port number, you must configure your firewall to allow traffic
+                via the specified port. Let's use the
+                example of <strong><code>Port 2973</code></strong>.</p>
+
+
+
+            <p>The default firewall configurations tool in Ubuntu is UFW. Configure UFW to allow traffic through port
+                2973 with the
+                following command:</p>
+
+
+
+            <pre class="wp-block-code"><code>sudo ufw allow from any to any port 2973 proto tcp</code></pre>
+
+
+
+
+            <p>Some firewalls may require allowing traffic to the public IP address of the machine running SSH.</p>
+
+
+
+
+            <h2>How to&nbsp;Connect to Ubuntu via SSH</h2>
+
+
+
+            <p>Once you enable SSH on Ubuntu, you are ready to log into your remote machine.</p>
+
+
+
+            <p>Open the terminal and use the following syntax to log in:</p>
+
+
+
+            <pre class="wp-block-code"><code>ssh &#091;username]@&#091;public_IP] -p&#091;port_number]</code></pre>
+
+
+
+            <ul>
+                <li><strong><code>[username]</code></strong> is the username of the account you want to access on the
+                    remote server.</li>
+
+
+
+                <li><strong><code>[public_IP]</code></strong> is the >public IP address of the remote server or computer you want to
+                    connect to.</li>
+
+
+
+                <li><strong><code>-p[port_number]</code></strong> is the port number to use for the SSH connection.</li>
+            </ul>
+
+
+            <p>Change the username and IP address to the username and IP address of the Ubuntu computer on which you
+                have installed SSH.</p>
+
+
+
+            <p>To find the IP address of the remote machine, open the terminal on the
+                machine and run the following command:</p>
+
+
+
+            <pre class="wp-block-code"><code>ip a</code></pre>
+
+
+
+            <p>The command displays the public IP address of the machine where SSH was installed.</p>
+
+
+
+            <p>Once you have identified and typed in all the information, you are logged into the server.</p>
+
+
+            <h2>Common SSH Commands for Ubuntu</h2>
+
+
+
+            <p>After enabling SSH on Ubuntu, several key commands can enhance the remote management experience. These
+                commands allow users to efficiently connect, manage, and secure their remote sessions.</p>
+            <p><strong>1. Connect to a remote machine:</strong></p>
+
+
+
+            <p>Connect to a remote machine via SSH using the following syntax:</p>
+
+
+
+            <pre class="wp-block-code"><code>ssh &#091;user]@&#091;remote_host]</code></pre>
+
+
+
+            <p>Replace <strong><code>[user]</code></strong> with the username and
+                <strong><code>[remote_host]</code></strong> with the IP address or hostname.
+            </p>
+
+
+
+            <p><strong>2. Use a specific port for SSH</strong>:</p>
+
+
+
+            <p>Connect to a remote machine using a specific port with:</p>
+
+
+
+            <pre class="wp-block-code"><code>ssh -p&#091;port_number] &#091;user]@&#091;remote_host]</code></pre>
+
+
+
+            <p>The <strong><code>-p</code></strong> option allows you to specify a custom port number to use to
+                establish an SSH connection. Specify it if you have changed the connection port in your SSH
+                configuration file.</p>
+
+
+
+            <p><strong>3. Copy files between local and remote machines</strong>:</p>
+
+
+
+            <p>Use the scp command to seamlessly copy files from your local machine to the
+                remote one and vice versa. The syntax is:</p>
+
+
+
+            <pre
+                class="wp-block-code"><code>scp &#091;file] &#091;user]@&#091;remote_host]:/path/to/destination</code></pre>
+
+
+
+            <ul>
+                <li><strong><code>[file]</code></strong> - The name of the file you want to copy from your local system.
+                </li>
+
+
+
+                <li><strong><code>[user]</code></strong> - The username on the remote server.</li>
+
+
+
+                <li><strong><code>[remote_host]</code></strong> - The IP address or hostname of the remote server.</li>
+
+
+
+                <li><strong><code>/path/to/destination</code></strong> - The directory on the remote server where you
+                    want to copy the file.</li>
+            </ul>
+
+
+
+            <p><strong>4. Add an SSH key to a remote machine</strong>:</p>
+
+
+
+            <p>The <strong><code>ssh-copy-id</code></strong> command sets up key-based authentication by copying your public SSH key
+                to a remote server. This allows you to log in to the server without using a password, making the
+                connection both more convenient and secure.</p>
+
+
+
+            <p>The syntax is:</p>
+
+
+
+            <pre class="wp-block-code"><code>ssh-copy-id user@remote_host</code></pre>
+
+
+
+            <p>The command transfers your public key (<em>~/.ssh/id_rsa.pub</em>) to the remote server. Make sure to generate the SSH keys beforehand.</p>
+
+
+            <p><strong>5. Check your SSH connection status</strong>:</p>
+
+
+
+            <p>Use the <strong><code>-v</code></strong> option (verbose mode) to display detailed information about the
+                SSH connection process. This is useful when troubleshooting connection problems or trying to understand
+                what happens during the authentication and session setup. The syntax is:</p>
+
+
+
+            <pre class="wp-block-code"><code>ssh -v &#091;user]@&#091;remote_host]</code></pre>
+
+
+
+
+
+
+            <h2>Troubleshooting Common SSH Errors on Ubuntu</h2>
+
+
+
+            <p>Several common errors can occur when using SSH to connect to remote servers. Below are solutions that
+                combine network, DNS, and configuration-related troubleshooting steps.</p>
+
+
+
+            <h3>Hostname Resolution Failed</h3>
+
+
+
+            <p>This error occurs when the client is unable to resolve the SSH host to a network address. Although it is usually related to DNS
+                issues, the problem could also stem from a typo or a misconfigured /etc/hosts file. The error looks similar to the following:</p>
+
+
+
+            <pre
+                class="wp-block-code"><code>ssh: Could not resolve hostname example.com: Name or service not known</code></pre>
+
+
+
+            <p>To resolve the issue, try one of the following:</p>
+
+
+
+            <ul>
+                <li><strong>Check hostname spelling</strong>. Verify that you typed the hostname correctly. Small typos
+                    can lead to connection failures.</li>
+
+
+
+                <li><strong>Ping the server</strong>. Use the ping command to ensure the hostname is correctly resolving on your
+                    machine.</li>
+
+
+
+                <li><strong>Use the IP address</strong>. As a temporary workaround, try to connect directly using the
+                    server's IP address instead of the hostname.</li>
+
+
+
+                <li><strong>Check </strong>whatsmydns.net to verify whether DNS
+                    records are propagating correctly outside your network. You can also check DNS
+                        configuration locally by reviewing the <em>/etc/resolv.conf</em> file or the DNS settings
+                    for your machine.</li>
+            </ul>
+
+
+
+            <h3>Connection Timeout</h3>
+
+
+
+            <p>A connection timeout occurs when the client tries to establish a connection, but the server does not
+                respond in time. The cause could be a firewall blocking the connection, an incorrect IP address, or a
+                network issue. The error looks similar to the one below:</p>
+
+
+
+            <pre class="wp-block-code"><code>ssh: connect to host 203.0.113.0 port 22: Connection timed out</code></pre>
+
+
+
+            <p>To resolve the issue:</p>
+
+
+
+            <ul>
+                <li><strong>Verify the IP address</strong>. Double-check that the IP address or hostname you are
+                    connecting to is correct.</li>
+
+
+
+                <li><strong>Check network restrictions</strong>. Some networks may block port 22 or custom SSH ports.
+                    Test SSH connectivity with a known working server on the same port to verify if the issue is
+                    network-specific.</li>
+
+
+
+                <li><strong>Use alternative ports</strong>. If your SSH server uses a non-standard port, specify it in
+                    your command.</li>
+
+
+
+                <li><strong>Ping the server</strong>. Use the <strong><code>ping</code></strong> command to test if the
+                    server is reachable.</li>
+
+
+
+                <li><strong>Check firewall rules</strong>: On the server, ensure that SSH traffic is allowed through the
+                    firewall. If you are using UFW, run:</li>
+            </ul>
+
+
+
+            <pre class="wp-block-code"><code>sudo ufw allow ssh</code></pre>
+
+
+
+            <h3>Permission Denied</h3>
+
+
+
+            <p>The "permission denied" error occurs when the server does not accept your
+                public key for authentication. It is usually caused by an incorrect key configuration or incorrect permissions on the remote server. The error looks like the following:
+            </p>
+
+
+
+            <pre class="wp-block-code"><code>Permission denied (publickey)</code></pre>
+
+
+
+            <p><strong>Solution</strong>:</p>
+
+
+
+            <ul>
+                <li><strong>Ensure your public key is copied correctly</strong>. Use
+                    <strong><code>ssh-copy-id</code></strong> from the section above to copy your key to the remote
+                    server.
+                </li>
+
+
+
+                <li><strong>Check file permissions</strong>. Ensure that the <em>.ssh</em> directory and
+                    <em>authorized_keys</em> file on the remote server have the correct permissions. Use the chmod
+                        command to change the file permissions:
+                </li>
+            </ul>
+
+
+
+            <pre class="wp-block-code">
+                <code>
+                    chmod 700 ~/.ssh
+                    chmod 600 ~/.ssh/authorized_keys
+                </code>
+            </pre>
+
+
+
+            <h3>Connection Refused</h3>
+
+
+
+            <p>The connection refused error means the client could reach the host, but the SSH server is not accepting
+                the connection. The reason for the error could be because the SSH service is down, listening on a
+                different port, or firewall rules are blocking the connection. An example of the error is below:</p>
+
+
+
+            <pre class="wp-block-code"><code>ssh: connect to host 203.0.113.0 port 22: Connection refused</code></pre>
+
+
+
+            <p>To resolve the issue:</p>
+
+
+
+            <ul>
+                <li><strong>Verify SSH is running on the server</strong>. Make sure that the SSH service is up and
+                    running:</li>
+            </ul>
+
+
+
+            <pre class="wp-block-code"><code>sudo systemctl status ssh</code></pre>
+
+
+
+            <p>If the command returns an <strong><code>inactive</code></strong> status, start it with:</p>
+
+
+
+            <pre class="wp-block-code"><code>sudo systemctl start ssh</code></pre>
+
+
+
+            <ul>
+                <li><strong>Ensure correct port usage</strong>. If you configured SSH to run on a different port,
+                    specify it in the SSH command when connecting.</li>
+
+
+
+                <li><strong>Firewall configuration</strong>. Make sure that firewall rules on the remote server allow
+                    connections on the SSH port.</li>
+            </ul>
+
+
+
+            <h2>How to Disable SSH on Ubuntu</h2>
+
+
+
+            <p>To temporarily disable SSH on Ubuntu, run:</p>
+
+
+
+            <pre class="wp-block-code"><code>sudo service ssh stop</code></pre>
+
+
+
+            <p>Start the SSH service with:</p>
+
+
+
+            <pre class="wp-block-code"><code>sudo service ssh start</code></pre>
+
+
+
+            <p>To completely disable SSH after reboot:</p>
+
+
+
+            <pre class="wp-block-code"><code>sudo systemctl disable ssh</code></pre>
+
+
+
+            <p>Enable SSH on Ubuntu after reboot with:</p>
+
+
+
+            <pre class="wp-block-code"><code>sudo systemctl enable ssh</code></pre>
+
+
+
+            <p class="h3">Conclusion</p>
+
+
+
+            <p>This tutorial showed how to enable SSH on Ubuntu, configure and secure the server, and troubleshoot
+                common SSH issues. Now, you can establish a reliable and secure protocol between you and a remote
+                device.</p>
+        </article>
+        <hr>
+        <section class="content__comment-section">
+            <h3>Leave a Comment</h3>
+            <form class="comment-form">
+                <label for="username">Name:</label>
+                <input type="text" id="username" name="username" placeholder="Your Name" required>
+                <br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <br><br>
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" placeholder="Write your comment here..." required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+            <div class="comment-container">
+                <h2>Comments</h2>
+                <div class="comment-preloader">Loading...</div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer">
+        <p class="footer__text">&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
