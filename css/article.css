@@ -11,10 +11,6 @@ h1.post-title {
     text-align: center;
 }
 
-.content {
-    margin: auto calc(10px + 20vw);
-}
-
 article {
     font-size: calc(12px + 0.5vw);
 }

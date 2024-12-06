@@ -1,18 +1,68 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-post {
+    flex: 7;
+    text-align: center;
+}
+
+.slider-container {
+    margin-left: 100px;
+    flex: 3;
+    width: 10%;
+}
+
+.slider-slide {
+    justify-items: center;
+}
+
+.slider-button {
+    text-align: center;
+}
+/* 
+
+.slider-prev {
+    position: relative;
+    top: -120px;
+}
+
+.slider-next {
+    position: relative;
+    top: -120px;
+} */
+
+.title {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.divider {
+    width: 2px;
+    background-color: black;
+    height: 30vh;
+}
+
 .post {
     display: flex;
+    text-decoration: none;
 }
 
 .post-thumbnail {
     width: 20%;
 }
 
-.post-link {
+.post-title {
     margin: 0 20px;
+    text-align: left;
+    font-size: 2vw;
+    color: black;
 }
 
 .post-link > a{
     text-decoration: none;
-    font-size: 40px;
+    font-size: 2vw;
     color: black;
-    margin: 0 ;
 }

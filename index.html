@@ -4,11 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Programming Lab</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>Web Programming Lab</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
     <script src="js/layout-utils.js"></script>
     <script src="js/load-stats.js"></script>
+    <script src="js/slider.js"></script>
 </head>
 
 <body>
@@ -41,23 +47,56 @@
         </div>
     </header>
     <div id="content" class="content">
-        <div class="post">
-            <img src="https://surfshark.com/wp-content/uploads/2022/12/Are_VPNs_safe_hero-1024x501.png"
-                class="post-thumbnail" alt="post-thumbnail">
-
-            <h2 class="post-link">
-                <a href="article.html">How Does a VPN Work? Tutorial for Beginners</a>
-            </h2>
+        <div class="main-post">
+            <a href="article.html" class="post">
+                <img src="assets/photos/thumbnail-1.png" class="post-thumbnail" alt="post-thumbnail">
+                <h2 class="post-title">How Does a VPN Work? Tutorial for Beginners</h2>
+            </a>
+            <br>
+            <a href="article-2.html" class="post">
+                <img src="assets/photos/thumbnail-2.png" class="post-thumbnail" alt="post-thumbnail">
+                <h2 class="post-title">How To Use SSH to Connect to a Remote Server</h2>
+            </a>
+            <br>
+            <a href="article-2.html" class="post">
+                <img src="assets/photos/thumbnail-2.png" class="post-thumbnail" alt="post-thumbnail">
+                <h2 class="post-title">How To Use SSH to Connect to a Remote Server</h2>
+            </a>
+            <br>
+            <a href="article-2.html" class="post">
+                <img src="assets/photos/thumbnail-2.png" class="post-thumbnail" alt="post-thumbnail">
+                <h2 class="post-title">How To Use SSH to Connect to a Remote Server</h2>
+            </a>
+            <br>
+            <a href="article-2.html" class="post">
+                <img src="assets/photos/thumbnail-2.png" class="post-thumbnail" alt="post-thumbnail">
+                <h2 class="post-title">How To Use SSH to Connect to a Remote Server</h2>
+            </a>
+            <br>
         </div>
-        <br>
-        <div class="post">
-            <img src="https://phoenixnap.com/kb/wp-content/uploads/2024/10/how-to-enable-ssh-on-ubuntu.png"
-                class="post-thumbnail" alt="post-thumbnail">
-
-            <h2 class="post-link">
-                <a href="article-2.html">How To Use SSH to Connect to a Remote Server</a>
-            </h2>
+        <div class="divider"></div>
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <div class="slider-slide">
+                    <img src="assets/photos/slider-1.jpg" alt="Img 1">
+                    <div class="title">Article 1</div>
+                </div>
+                <div class="slider-slide">
+                    <img src="assets/photos/slider-2.jpg" alt="Img 2">
+                    <div class="title">Article 2</div>
+                </div>
+                <div class="slider-slide">
+                    <img src="assets/photos/slider-3.jpg" alt="Img 3">
+                    <div class="title">Article 3</div>
+                </div>
+            </div>
+            <div class="slider-button">
+                <button class="slider-prev"><img src="assets/icons/arrow-left.png"></button>
+                <button class="slider-next"><img src="assets/icons/arrow-right.png"></button>
+            </div>
+            
         </div>
+
     </div>
     <footer class="footer">
         <p class="footer__text">&copy; 2024 My Website. All rights reserved.</p>
