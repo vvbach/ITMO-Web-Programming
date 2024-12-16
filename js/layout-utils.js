@@ -1,14 +1,16 @@
 function setFooterAtBottom(){
     var footer = document.getElementsByTagName('footer')[0];
+    var content = document.querySelector('.content');
     var windowHeight = window.innerHeight;
-    var documentHeight = document.scrollingElement.offsetHeight;
-
-    if (documentHeight < windowHeight){
+    if (content.getBoundingClientRect().bottom + parseFloat(content.style.marginTop) < windowHeight - footer.getBoundingClientRect().height){
         footer.classList.add('bottom');
     }
     else {
         footer.classList.remove('bottom');
     }
+    console.log(content.getBoundingClientRect().bottom);
+    console.log(footer.getBoundingClientRect().height);
+    console.log(parseFloat(window.getComputedStyle(content).marginTop));
 }
 
 function setPositionDropdownMenu(){
