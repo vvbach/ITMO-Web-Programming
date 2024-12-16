@@ -8,6 +8,11 @@
     text-align: center;
 }
 
+.recommended-post{
+    text-align: center;
+    font-size: min(2vw, 25px);
+}
+
 .slider-container {
     margin-left: 100px;
     flex: 3;
@@ -44,11 +49,11 @@
 }
 
 .slider-prev {
-   left: -55%;
+    left: -2%;
 }
 
 .slider-next {
-    left: 55%;
+    left: 2%;
 }
 
 .slider-button img {
@@ -60,16 +65,16 @@
     display: block;
 }
 
-.title {
+.slider-title {
     margin-top: 10px;
-    font-size: 18px;
+    font-size: max(1vw, 15px);
     color: #333;
 }
 
 .divider {
     width: 2px;
     background-color: black;
-    height: 190px;
+    height: 350px;
 }
 
 .post {
@@ -110,5 +115,9 @@
     .slider-container {
         margin: auto;
         width: 50%;
+    }
+
+    .slider-button-list {
+        display: none;
     }
 }

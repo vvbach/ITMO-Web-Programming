@@ -1,18 +1,3 @@
-function setFooterAtBottom(){
-    var footer = document.getElementsByTagName('footer')[0];
-    var content = document.querySelector('.content');
-    var windowHeight = window.innerHeight;
-    if (content.getBoundingClientRect().bottom + parseFloat(content.style.marginTop) < windowHeight - footer.getBoundingClientRect().height){
-        footer.classList.add('bottom');
-    }
-    else {
-        footer.classList.remove('bottom');
-    }
-    console.log(content.getBoundingClientRect().bottom);
-    console.log(footer.getBoundingClientRect().height);
-    console.log(parseFloat(window.getComputedStyle(content).marginTop));
-}
-
 function setPositionDropdownMenu(){
     var dropdownContent = document.getElementsByClassName('header__dropdown-content')[0];
     var menuContainer = document.getElementsByClassName('header__menu-container')[0];
@@ -27,9 +12,31 @@ function setContentPosition(){
     content.style.marginTop = topMenuContainer.getBoundingClientRect().bottom + window.innerWidth * 0.03 + 'px'
 }
 
+function setFooterAtBottom(){
+    var footer = document.getElementsByTagName('footer')[0];
+    var content = document.querySelector('.content');
+    var windowHeight = window.innerHeight;
+    footerHeight = footer.getBoundingClientRect().height;
+    if (content.getBoundingClientRect().height + parseFloat(content.style.marginTop) < windowHeight - footerHeight){
+        footer.classList.add('bottom');
+    }
+    else {
+        footer.classList.remove('bottom');
+    }
+}
+
 function clickMenuBtn(){
     document.getElementsByClassName('header__dropdown-btn')[0].classList.toggle('header__dropdown-btn-change-animation');
-    document.getElementsByClassName('header__dropdown-content')[0].classList.toggle('header__dropdown-content-open');
+    var dropdownContent = document.getElementsByClassName('header__dropdown-content')[0]
+    dropdownContent.classList.toggle('header__dropdown-content-open');
+    
+    if (dropdownContent.classList.contains('header__dropdown-content-open')){
+        content.style.marginTop = dropdownContent.getBoundingClientRect().bottom + 20 + 'px';
+        setFooterAtBottom();
+    } else {
+        setContentPosition();
+        setFooterAtBottom();
+    }
 }
 
 function highlightActiveMenu(){
@@ -47,10 +54,10 @@ function highlightActiveMenu(){
 }
 
 function initialize(){
-    setFooterAtBottom();
     setPositionDropdownMenu();
     setContentPosition();
     highlightActiveMenu();
+    setFooterAtBottom();
 }
 
 document.addEventListener("DOMContentLoaded", initialize);

@@ -129,6 +129,7 @@ body {
 .content {
     display: block;
     margin: auto calc(10px + 20vw);
+    padding-bottom: 0px;
 }
 
 /* Footer Block */
